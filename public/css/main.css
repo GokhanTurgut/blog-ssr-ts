@@ -1,0 +1,140 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.nav--list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  padding: 2rem 2rem;
+  background-color: #252525;
+  list-style: none;
+}
+
+.nav--list > div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav--list__linkBlog {
+  color: #f45d48;
+  text-decoration: none;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.nav--list__linkBlog:visited {
+  color: #f45d48;
+}
+
+.nav--list__linkNav {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.nav--list__linkNav:hover,
+.nav--list__linkNav:active {
+  color: #f45d48;
+}
+
+.nav--list__linkLogout {
+  color: white;
+  font-size: 1.5rem;
+  font-family: 'Ubuntu', sans-serif;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.nav--list__linkLogout:hover,
+.nav--list__linkLogout:active {
+    color: #f45d48;
+}
+
+main {
+  flex: 1;
+  background-color: #6d6d6d;
+}
+
+footer {
+  text-align: center;
+  background-color: #252525;
+  color: white;
+}
+
+.footer--githubLink {
+  color: #f45d48;
+  text-decoration: none;
+}
+
+.footer--githubLink:visited {
+  color: #f45d48;
+}
+
+.btn {
+  background-color: #f45d48;
+  border: none;
+  padding: .5rem 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 3rem;
+}
+
+.btn:hover,
+.btn:active {
+  background-color: #e97b6c;
+}
+
+.btn--edit {
+  background-color: #eeb438;
+  border: none;
+  padding: .5rem 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 3rem;
+}
+
+.btn--edit:hover,
+.btn--edit:active {
+  background-color: #f8ca67;
+}
+
+.btn--delete {
+  background-color: #831414;
+  border: none;
+  padding: .5rem 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 3rem;
+}
+
+.btn--delete:hover,
+.btn--delete:active {
+  background-color: #a11818;
+  border: none;
+  padding: .5rem 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 3rem;
+}
+
+.message-error {
+  color: #f45d48;
+  font-size: 1.3rem;
+  font-weight: bold;
+}

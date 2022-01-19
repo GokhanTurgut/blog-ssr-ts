@@ -1,0 +1,19 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/post.css">
+</head>
+<%- include('../includes/navigation.ejs') %>
+  <main>
+    <h1 class="post--title"><%= post.title %></h1>
+      <div class="post--container">
+        <div class="post--image__container">
+          <% if (post.imageURL === 'images/default-photo.webp') { %>
+            <img src="../<%= post.imageURL %>" alt="<%= post.description %>">
+          <% } else { %>
+            <img src="<%= post.imageURL %>" alt="<%= post.description %>">
+          <% } %>
+        </div>
+        <h4><%= post.description %></h4>
+        <div class="markdown--container"><%- post.sanitizedContent %></div>
+      </div>
+  </main>
+<%- include('../includes/footer.ejs') %>
