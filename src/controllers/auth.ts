@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 import { validationResult } from "express-validator";
 
-import User from "../models/user.js";
+import User from "../models/user";
 import { RequestHandler } from "express";
 
 dotenv.config();
@@ -121,7 +121,9 @@ const postLogin: RequestHandler = async (req, res) => {
       { expiresIn: "2h" }
     );
     res.cookie("token", token, { httpOnly: true });
-    req.session.browser = req.headers["user-agent"];
+    if (req.headers["user-agent"]) {
+      req.session.browser = req.headers["user-agent"];
+    }
     req.session.user = user;
     res.redirect("/");
   } catch (err) {

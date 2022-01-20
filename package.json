@@ -4,8 +4,10 @@
   "description": "Blogging application",
   "main": "app.js",
   "scripts": {
-    "start": "ts-node app.ts",
-    "startDev": "nodemon app.ts"
+    "start": "node dist/app.js",
+    "start-ts": "ts-node --files src/app.ts",
+    "start-dev": "nodemon --files src/app.ts",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",

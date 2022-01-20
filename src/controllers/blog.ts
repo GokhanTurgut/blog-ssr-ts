@@ -3,7 +3,7 @@ import DOMPurifyCreator from "dompurify";
 import { JSDOM } from "jsdom";
 import { validationResult } from "express-validator";
 
-import Post from "../models/post.js";
+import Post from "../models/post";
 import { RequestHandler } from "express";
 
 const DOMPurify = DOMPurifyCreator(new JSDOM().window as unknown as Window);

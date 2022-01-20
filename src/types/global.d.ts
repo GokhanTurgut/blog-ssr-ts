@@ -11,10 +11,10 @@ namespace NodeJS {
 declare namespace Express {
   export interface Request {
       userId: string;
-      username: string | undefined;
+      username: string;
       session: {
-        browser: string | undefined;
-        user: string | undefined;
+        browser: string;
+        user: string;
         destroy(fn: (err: any) => void): void;
       }
   }
