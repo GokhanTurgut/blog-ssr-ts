@@ -1,4 +1,5 @@
 import { RequestHandler, ErrorRequestHandler } from "express";
+// Error handlers
 
 export const get404: RequestHandler = (req, res, next) => {
   res.status(404).render("404", {

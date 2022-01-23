@@ -1,3 +1,4 @@
+// Type declarations for our environment variables
 namespace NodeJS {
   interface ProcessEnv {
     NODE_ENV: string;
@@ -8,6 +9,7 @@ namespace NodeJS {
   }
 }
 
+// Type declarations for our request object
 declare namespace Express {
   export interface Request {
       userId: string;
@@ -20,6 +22,7 @@ declare namespace Express {
   }
 }
 
+// Type declarations for our JWT payload
 declare namespace jwt {
   export interface JwtPayload {
       userId: string;

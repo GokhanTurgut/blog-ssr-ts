@@ -42,12 +42,12 @@ export const signupValidators = [
       })
     ),
   check("password")
+    .trim()
     .isLength({ min: 6 })
     .withMessage(
       "Password must contain numbers and letters and must be at least 6 characters long."
     )
-    .isAlphanumeric()
-    .trim(),
+    .isAlphanumeric(),
   check("confirmPassword")
     .trim()
     .custom((value, { req }) => {
@@ -61,10 +61,10 @@ export const signupValidators = [
 export const loginValidators = [
   check("username").trim().isAlphanumeric(),
   check("password")
+    .trim()
     .isLength({ min: 6 })
     .withMessage(
       "Password must contain numbers and letters and must be at least 6 characters long."
     )
-    .isAlphanumeric()
-    .trim(),
+    .isAlphanumeric(),
 ];

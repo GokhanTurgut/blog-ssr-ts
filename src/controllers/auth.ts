@@ -67,7 +67,7 @@ const postSignUp: RequestHandler = async (req, res) => {
       email: email,
       password: hashedPassword,
     });
-    const result = await user.save();
+    await user.save();
     res.redirect("/login");
   } catch (err) {
     throw new Error(err as string);
@@ -112,6 +112,7 @@ const postLogin: RequestHandler = async (req, res) => {
         },
       });
     }
+    // Creating our JWT token with 2h expiration time
     const token = jwt.sign(
       {
         username: user.username,
@@ -120,7 +121,9 @@ const postLogin: RequestHandler = async (req, res) => {
       process.env.PRIVATE_KEY,
       { expiresIn: "2h" }
     );
+    // Storing our JWT token in cookies
     res.cookie("token", token, { httpOnly: true });
+    // Storing user data in our session
     if (req.headers["user-agent"]) {
       req.session.browser = req.headers["user-agent"];
     }

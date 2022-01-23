@@ -6,6 +6,8 @@ import { validationResult } from "express-validator";
 import Post from "../models/post";
 import { RequestHandler } from "express";
 
+// Creating our DOMPurify object to sanitize HTML that is 
+// transformed from markdown using marked library
 const DOMPurify = DOMPurifyCreator(new JSDOM().window as unknown as Window);
 
 const getIndex: RequestHandler = async (req, res) => {
@@ -93,10 +95,12 @@ const postAddPost: RequestHandler = async (req, res) => {
     });
   }
 
+  // If no image provided use our default image
   if (!imageURL) {
     imageURL = "images/default-photo.webp";
   }
 
+  // Transforming markdown to HTML then sanitizing it
   const sanitizedContent = DOMPurify.sanitize(marked(content));
 
   const post = new Post({
@@ -145,10 +149,12 @@ const postEditPostById: RequestHandler = async (req, res) => {
     });
   }
 
+  // If no image provided use our default image
   if (!imageURL) {
     imageURL = "images/default-photo.webp";
   }
 
+  // Transforming markdown to HTML then sanitizing it
   const sanitizedContent = DOMPurify.sanitize(marked(content));
 
   try {
@@ -162,7 +168,7 @@ const postEditPostById: RequestHandler = async (req, res) => {
     post.content = content;
     post.sanitizedContent = sanitizedContent;
     await post.save();
-    res.redirect("/myPosts");
+    res.redirect(`/post/${postId}`);
   } catch (err) {
     throw new Error(err as string);
   }
